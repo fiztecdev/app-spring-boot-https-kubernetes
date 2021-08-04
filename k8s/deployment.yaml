@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-https-deployment
+  labels:
+    app: spring-boot-https
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-https
+  template:
+    metadata:
+      labels:
+        app: spring-boot-https
+    spec:
+      containers:
+        - name: spring-boot-https
+          image: spring-boot-https:v1
+          ports:
+            - containerPort: 8443
